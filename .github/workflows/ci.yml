@@ -14,7 +14,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+        
+      - name: Force XCode 13.4
+        run: sudo xcode-select -switch /Applications/Xcode_13.4.app
+        
       - name: Build and Test
-        run: swift test
-        env:
-          DEVELOPER_DIR: /Applications/Xcode_13.4.app/Contents/Developer
+        run:  xcodebuild -scheme Github_actions build
