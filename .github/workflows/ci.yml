@@ -19,4 +19,5 @@ jobs:
         run: sudo xcode-select -switch /Applications/Xcode_13.4.app
         
       - name: Build and Test
-        run:  xcodebuild -scheme Github_actions build
+        run:  xcodebuild test -scheme Github_actions -project Github_actions.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 12,OS=15.0' | xcpretty && exit ${PIPESTATUS[0]}
+
