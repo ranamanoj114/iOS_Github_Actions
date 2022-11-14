@@ -20,8 +20,3 @@ jobs:
         
       - name: Build and Test
         run:  xcodebuild test -scheme Github_actions -project Github_actions.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 8,OS=15.5' | xcpretty && exit ${PIPESTATUS[0]}
-      
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
